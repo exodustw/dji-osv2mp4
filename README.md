@@ -1,8 +1,8 @@
 # dji-osv2mp4
 
-A CLI tool to automate converting panorama videos in raw .OSV format from DJI 360 cameras into .mp4 panorama videos using SikuliX and ExifTool.
+A CLI tool to automate converting panorama videos in raw .OSV format from DJI Osmo 360 into .mp4 panorama videos using SikuliX and ExifTool.
 
-This tool is meant to free users from the god damn DJI proprietary .OSV format. The freaking company DOES NOT provide any API (in contrast, Insta360 provides an SDK for its 360 cameras — see [https://github.com/whmou/insta360-auto-converter](https://github.com/whmou/insta360-auto-converter)) for automation. As a result, exporting and handling metadata for large amounts of video is frustrating.
+This tool is meant to free users from the god damn DJI proprietary .OSV format. The freaking company DOES NOT provide any API (in contrast, Insta360 provides an SDK for its 360 cameras — see [https://github.com/whmou/insta360-auto-converter](https://github.com/whmou/insta360-auto-converter)) for automation. As a result, exporting and handling metadata for large amounts of video is EXTREMELY frustrating.
 
 This is a small toolchain combines:
 
@@ -39,7 +39,7 @@ Automates exporting `.OSV` files into `.mp4` using SikuliX GUI scripting.
 
 ### 2. Metadata Synchronization (Post-processing)
 
-Fixes metadata of exported `.MP4` files using `ExifTool`.
+Fixes metadata of exported `.mp4` files using `ExifTool`.
 
 * Copies metadata from corresponding `.OSV` file
 * Adjusts timezone and timestamps
@@ -97,7 +97,7 @@ python main.py <input_dir> <output_dir> [options]
 
 | Option                     | Description                    |
 | -------------------------- | ------------------------------ |
-| `-r, --resolution`         | `4K`, `6K`, `8K` (default: `8K`) |
+| `-r, --resolution`         | `4K`, `6K`, `8K` (default: `4K`) |
 | `-b, --bitrate`            | `low`, `high`, `recommended`   (default: `recommended`)|
 | `-w, --wait`               | Delay (in second) between automation steps (default: `2.5s`) |
 | `-s, --skip-before <file>` | Resume from specific filename  |
@@ -122,7 +122,7 @@ python rename.py "<glob_path>" <timezone> [options]
 
 | Argument | Description                                  |
 | -------- | -------------------------------------------- |
-| `dir`    | Target files (supports glob, e.g. `"*.MP4"`) |
+| `dir`    | Target files (supports glob, e.g. `"*.mp4"`) |
 | `tz`     | Target timezone (e.g. `9` for UTC+9)         |
 
 #### Options
@@ -144,7 +144,7 @@ python main.py ./osv ./mp4 -r 8K
 ### Step 2: Fix metadata
 
 ```bash
-python rename.py "./*.MP4" 9
+python rename.py "./*.mp4" 9
 ```
 
 The tool assumes:
@@ -153,7 +153,7 @@ The tool assumes:
 CAM_20251118222532_0001_D.panorama.4K.mp4  <->  CAM_20251118222532_0001_D.OSV
 ```
 
-Metadata is copied from `.OSV` → `.MP4`. The two files are assumed to be under the same folder.
+Metadata is copied from `.OSV` to `.mp4`. The two files are assumed to be under the same folder.
 
 ## License
 
