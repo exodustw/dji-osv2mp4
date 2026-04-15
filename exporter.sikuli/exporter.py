@@ -44,9 +44,9 @@ if len(sys.argv) > 3:
 
 wait = 2.5
 if len(sys.argv) > 4:
-    if sys.argv[4].isdigit():
-        wait = max(int(sys.argv[4]), 0)
-    else:
+    try:
+        wait = max(float(sys.argv[4]), 0)
+    except ValueError:
         print("Sleep time "+sys.argv[4]+" is not supported")
         os.exit(3)
 
