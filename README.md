@@ -123,13 +123,13 @@ python inject.py "<glob_path>" <timezone> [options]
 | Argument | Description                                  |
 | -------- | -------------------------------------------- |
 | `dir`    | Target files (supports glob, e.g. `"*.mp4"`) |
-| `tz`     | Target timezone (e.g. `9` for UTC+9)         |
 
 #### Options
 
 | Option             | Description                               |
 | ------------------ | ----------------------------------------- |
-| `-t, --default-tz` | Default timezone if missing (default: +8) |
+| `-c, --correct-tz`     | Correct timezone of the footages (e.g. `9` for UTC+9) |
+| `-t, --default-tz` | Timezone of the camera timestamp (default: +8) |
 | `-f, --overwrite`  | Force overwrite existing metadata         |
 | `-d, --debug`      | Print ExifTool command                    |
 

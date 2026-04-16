@@ -106,8 +106,8 @@ def copy_exif(src, dst, new_tz=8, default_tz=8, model='DJI Osmo360', debug=False
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("dir", help="path")
-    parser.add_argument("tz", type=int, choices=range(-12, 15), help="correct timezone")
-    parser.add_argument("-t", "--default-tz", type=int, default=8, choices=range(-12, 15), help="default timezone if not presented in file")
+    parser.add_argument("-c", "--correct-tz", type=int, default=8, choices=range(-12, 15), help="correct timezone")
+    parser.add_argument("-t", "--default-tz", type=int, default=8, choices=range(-12, 15), help="default timezone")
     parser.add_argument("-f", "--overwrite", action="store_true", help="overwrite")
     parser.add_argument("-d", "--debug", action="store_true", help="debug flag")
 
@@ -125,7 +125,7 @@ if __name__ == '__main__':
                 continue
 
             if os.path.isfile(osv):
-                if copy_exif(osv, mp4, new_tz=args.tz, default_tz=args.default_tz, debug=args.debug):
+                if copy_exif(osv, mp4, new_tz=args.correct_tz, default_tz=args.default_tz, debug=args.debug):
                     print("Finished.")
             else:
                 print(f"Skipped. ({os.path.basename(osv)} not found)")
