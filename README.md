@@ -65,9 +65,9 @@ The `main.py` and the corresponding `exporter.sikuli/exporter.py` is only test u
 
   Download: [https://github.com/RaiMan/SikuliX1/releases/tag/v2.0.5](https://github.com/RaiMan/SikuliX1/releases/tag/v2.0.5)
 
-### Utils: Metadata Processing (rename.py)
+### Utils: Metadata Processing (inject.py)
 
-The utils `rename.py` is only test under debian because my NAS is debian :(.
+The utils `inject.py` is only test under debian because my NAS is debian :(.
 
 * Linux
 * Python 3.8+
@@ -114,10 +114,10 @@ python main.py ./input ./output -r 8K -b high
 CAM_2026XXXXXXXXXX_0001_D.OSV  <->  CAM_2026XXXXXXXXXX_0001_D.panorama.<resolution>.mp4
 ```
 
-### 2. Metadata Fix (`rename.py`)
+### 2. Metadata Fix (`inject.py`)
 
 ```bash
-python rename.py "<glob_path>" <timezone> [options]
+python inject.py "<glob_path>" <timezone> [options]
 ```
 
 | Argument | Description                                  |
@@ -144,7 +144,7 @@ python main.py ./osv ./mp4 -r 8K
 ### Step 2: Fix metadata
 
 ```bash
-python rename.py "./*.mp4" 9
+python inject.py "./*.mp4" 9
 ```
 
 The tool assumes:
